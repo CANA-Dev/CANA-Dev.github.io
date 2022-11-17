@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import { Button, Col, Container, Row } from "react-bootstrap";
-import Select from "react-select";
+import { Container, Row } from "react-bootstrap";
 import makeAnimated from 'react-select/animated';
 
-const animatedComponents = makeAnimated();
+import CategoryFilter from "./CategoryFilter";
+
+import { ClearWrapper, StyledButton } from "../assets/Styles";
 
 const Filtering = ({ applyFilter, baseCategories }) => {
   const [ categories ] = useState(baseCategories);
+  const animatedComponents = makeAnimated();
 
   const clearAllFilters = () => {
     categories.forEach((cat) => handleLocalChange([], null, cat));
@@ -18,7 +20,13 @@ const Filtering = ({ applyFilter, baseCategories }) => {
   }
 
   return (
-    <Container style={ { paddingTop: "10%" } }>
+    <Container>
+      <ClearWrapper>
+        <StyledButton onClick={ () => clearAllFilters() }>
+          CLEAR
+        </StyledButton>
+      </ClearWrapper>
+
       <Row lg={ 3 }
            md={ 3 }
            sm={ 1 }
@@ -29,31 +37,13 @@ const Filtering = ({ applyFilter, baseCategories }) => {
             key={ cat.id }
             category={ cat }
             handleLocalChange={ handleLocalChange }
+            components={ animatedComponents }
           />)
         }
-      </Row>
-      <Row>
-        <Button onClick={ () => clearAllFilters() }>
-          Clear
-        </Button>
       </Row>
     </Container>
   );
 }
-
-const CategoryFilter = ({ category, handleLocalChange }) => (
-  <Col>
-    <h5>{ category.title }</h5>
-    <Select
-      value={ category.selected }
-      onChange={ (val, metadata) => handleLocalChange(val, metadata, category) }
-      closeMenuOnSelect={ false }
-      components={ animatedComponents }
-      isMulti
-      options={ category.values }
-    />
-  </Col>
-);
 
 
 export default Filtering;

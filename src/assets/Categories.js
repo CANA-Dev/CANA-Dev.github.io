@@ -57,7 +57,7 @@ export const Approach = {
 }
 
 export const Diversity = {
-  id: "diversity", title: "Leadership Diversity", selected: [], values: [ {
+  id: "diversity", title: "Org Diversity", selected: [], values: [ {
     value: "Aboriginal and Torres Strait Islander led", label: "Aboriginal and Torres Strait Islander led",
   }, {
     value: "Led by people from CALD communities", label: "Led by people from CALD communities",

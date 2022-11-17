@@ -22,3 +22,10 @@ type SelectOption = {
     value: string
 }
 
+// eslint-disable-next-line
+type Filter = {
+    topics: string[],
+    approach: string[],
+    diversity: string[]
+}
+

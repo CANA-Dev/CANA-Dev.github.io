@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
+
 import Filtering from "./components/Filtering";
 import List from "./components/List";
+
 import Orgs from "./assets/dummydata/Orgs";
 import Categories from "./assets/Categories";
+import BaseFilter from "./assets/Filters";
+
+import { Wrapper } from "./assets/Styles";
 
 const App = () => {
-  const baseFilter = {
-    "topics": [],
-    "approach": [],
-    "diversity": []
-  };
-
-  const [ appliedFilter ] = useState(baseFilter);
+  const [ appliedFilter ] = useState(BaseFilter);
   const [ dataset, setDataset ] = useState(Orgs);
 
   const applyFilter = (val, metadata, type) => {
@@ -34,12 +33,12 @@ const App = () => {
   }
 
   return (
-    <>
+    <Wrapper>
       <Filtering applyFilter={ applyFilter }
                  baseCategories={ Categories } />
 
       <List dataset={ dataset } />
-    </>
+    </Wrapper>
   );
 }
 

@@ -1,46 +1,20 @@
 import React from "react";
-import styled from "styled-components";
 
 import Col from "react-bootstrap/Col";
 
-const StyledCard = styled.div`
-	text-align: center;
-	position: relative;
-	overflow: hidden;
-	border-radius: 5px;
-	margin: 0 10px 40px 10px;
-	box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
-	transition: all 0.3s ease-in-out;
-	&:hover {
-	    -webkit-transform: translateY(-5px);
-		transform: translateY(-5px);
-		
-		& a {
-			color: #007bff;
-			text-decoration: none;
-		}
-		
-		& h3 {
-			padding-bottom: 20px;
-		}
-	}
-	
-	& a {
-		color: #111;
-		text-decoration: none;
-	}
-	
-	& h3 {
-		padding-bottom: 20px;
-	}
-	
-`;
+import { StyledCard } from "../assets/Styles";
 
-const Card = ({name, website}) => (
+const Card = ({ name, image, website }) => (
   <Col>
     <StyledCard>
+      { !!image &&
+        <div style={ { paddingBottom: "10px" } }>
+          <img src={ image }
+               alt={ `${ name }'s Logo` } />
+        </div>
+      }
       <div>
-        <h3><a href={website}>{name}</a></h3>
+        <h3><a href={ website }>{ name.toUpperCase() }</a></h3>
       </div>
     </StyledCard>
   </Col>
