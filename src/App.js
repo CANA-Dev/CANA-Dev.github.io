@@ -1,17 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Filtering from "./components/Filtering";
 import List from "./components/List";
-
-import Orgs from "./assets/dummydata/Orgs";
 import Categories from "./assets/Categories";
 import BaseFilter from "./assets/Filters";
 
 import { Wrapper } from "./assets/Styles";
+import { getMembers } from "./assets/Airtable";
+import Loader from "./components/Loader";
 
 const App = () => {
+  const [ loading, setLoading] = useState(true);
   const [ appliedFilter ] = useState(BaseFilter);
-  const [ dataset, setDataset ] = useState(Orgs);
+  const [ baseDataset, setBaseDataset ] = useState([]);
+  const [ dataset, setDataset ] = useState([]);
+
+  useEffect(() => {
+    getMembers(setBaseDataset, setDataset, setLoading);
+  }, [])
+
 
   const applyFilter = (val, metadata, type) => {
     if (!appliedFilter.hasOwnProperty(type)) {
@@ -23,7 +30,7 @@ const App = () => {
   }
 
   const reRenderList = () => {
-    let workingSet = [ ...Orgs ];
+    let workingSet = [ ...baseDataset ];
     Object.keys(appliedFilter).forEach((key) => {
       appliedFilter[`${ key }`].forEach((val) => {
         workingSet = workingSet.filter(item => item[`${ key }`].includes(val.value));
@@ -31,6 +38,9 @@ const App = () => {
     })
     setDataset(workingSet);
   }
+
+  if (loading)
+    return (<Loader />)
 
   return (
     <Wrapper>

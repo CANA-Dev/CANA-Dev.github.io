@@ -3,9 +3,9 @@ type Organisation = {
     name: string,
     website: string,
     logo: string,
-    catOne: string[],
-    catTwo: string[],
-    catThree: string[]
+    topics: string[],
+    approach: string[],
+    diversity: string[]
 }
 
 // eslint-disable-next-line
