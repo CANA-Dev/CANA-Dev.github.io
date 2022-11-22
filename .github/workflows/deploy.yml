@@ -19,14 +19,15 @@ jobs:
         run: |
           yarn install
           yarn build
+        env:
+          REACT_APP_AIRTABLE_ENDPOINT: ${{ secrets.REACT_APP_AIRTABLE_ENDPOINT }}
+          REACT_APP_AIRTABLE_API_KEY: ${{ secrets.REACT_APP_AIRTABLE_API_KEY }}
+          REACT_APP_AIRTABLE_DATABASE_ID: ${{ secrets.REACT_APP_AIRTABLE_DATABASE_ID }}
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REACT_APP_AIRTABLE_ENDPOINT: ${{ secrets.REACT_APP_AIRTABLE_ENDPOINT }}
-          REACT_APP_AIRTABLE_API_KEY: ${{ secrets.REACT_APP_AIRTABLE_API_KEY }}
-          REACT_APP_AIRTABLE_DATABASE_ID: ${{ secrets.REACT_APP_AIRTABLE_DATABASE_ID }}
           BRANCH: pages
           FOLDER: build
