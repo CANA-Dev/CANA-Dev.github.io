@@ -26,6 +26,15 @@ export const ClearWrapper = styled(Row)`
   justify-content: right;
 `;
 
+export const ImageWrapper = styled.div`
+  padding-bottom: 25px;
+`;
+
+export const CardTitleWrapper = styled.div`
+  padding-right: 10px;
+  padding-left: 10px;
+`;
+
 export const StyledCard = styled.div`
 	font-family: 'Darker Grotesque', sans-serif;
 	text-align: center;
@@ -47,6 +56,7 @@ export const StyledCard = styled.div`
 	
 	& h3 {
 		font-weight: 600;
+		color: #E9A912;
 	}
 	
 	&:hover {
@@ -77,4 +87,8 @@ export const StyledButton = styled(Button)`
 	  background: #11204D;
 	  color: #f3ca17;
 	}
+`;
+
+export const StyledImage = styled.img`
+  width: 75%;
 `;
