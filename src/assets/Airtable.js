@@ -1,10 +1,10 @@
 import Airtable from "airtable";
 
 Airtable.configure({
-                     endpointUrl: process.env.REACT_APP_AIRTABLE_ENDPOINT,
-                     apiKey: process.env.REACT_APP_AIRTABLE_API_KEY
+                     endpointUrl: "https://api.airtable.com",
+                     apiKey: 'keyefiGuFP2rQtNjf'
                    });
-const DataBase = Airtable.base(process.env.REACT_APP_AIRTABLE_DATABASE_ID);
+const DataBase = Airtable.base('appdY5ta0V8jy0NkB');
 
 export const getMembers = (setBase, setCurrent, setLoading) => {
   const members = [];
