@@ -2,7 +2,7 @@ All Rights Reserved
 
 Copyright (c) 2022 Climate Action Network Australia
 
-Created by Vitor Vicente
+Created by Vitor Vicente.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
