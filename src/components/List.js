@@ -5,6 +5,12 @@ import Card from "./Card";
 
 import { ListWrapper } from "../assets/Styles";
 
+/**
+ * Complete Organisation Display List Component.
+ *
+ * @param dataset Filtered Organisation Dataset to Display
+ * @returns {JSX.Element} Full Rendered Organisation List Component.
+ */
 const List = ({ dataset }) => (
   <ListWrapper>
     <Row lg={ 3 }
@@ -22,4 +28,5 @@ const List = ({ dataset }) => (
   </ListWrapper>
 );
 
+// Export the Component.
 export default List;

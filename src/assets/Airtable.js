@@ -1,11 +1,14 @@
 import Airtable from "airtable";
 
+// Configure our Airtable Object.
 Airtable.configure({
                      endpointUrl: process.env.REACT_APP_AIRTABLE_ENDPOINT,
                      apiKey: process.env.REACT_APP_AIRTABLE_API_KEY
                    });
+// Get all of the Organisation Database from Airtable.
 const DataBase = Airtable.base(process.env.REACT_APP_AIRTABLE_DATABASE_ID);
 
+// Helper function to load a formatted list of all of our Member Orgs from Airtable.
 export const getMembers = (setBase, setCurrent, setLoading) => {
   const members = [];
   DataBase('Organisations 🏢')
@@ -26,6 +29,7 @@ export const getMembers = (setBase, setCurrent, setLoading) => {
     });
 }
 
+// Format a Database entry into an Organisation Object that is useful.
 const formatMember = (record) => {
   return {
     name: record.fields["Org Name"],

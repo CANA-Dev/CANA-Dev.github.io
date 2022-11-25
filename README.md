@@ -94,3 +94,7 @@ run ```git checkout main```, followed by ```git branch -d {YOURNAME}```.
 This will mean you'll need to recreate the branch every time, but dealing with complex mergers is significantly
 harder... If you do want to learn more about this, I advise
 this [tutorial](https://www.atlassian.com/git/tutorials/using-branches).
+
+# Codebase Documentation
+
+All the code on this folder is commented, but you can also see general indications in the DOCUMENTATION.md file.

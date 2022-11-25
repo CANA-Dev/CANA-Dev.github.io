@@ -1,3 +1,4 @@
+// Filter Category based on the Topics the Orgs work on.
 export const Topics = {
   id: "topics", title: "Work Topics", selected: [], values: [ {
     value: "Coal", label: "Coal",
@@ -32,6 +33,7 @@ export const Topics = {
   } ]
 }
 
+// Filter Category based on the Work Approach of the Orgs.
 export const Approach = {
   id: "approach", title: "Work Approach", selected: [], values: [ {
     value: "Build international pressure", label: "Build international pressure",
@@ -56,6 +58,7 @@ export const Approach = {
   } ]
 }
 
+// Filter Category based on the Diversity of an Orgs Leadership.
 export const Diversity = {
   id: "diversity", title: "Org Diversity", selected: [], values: [ {
     value: "Aboriginal and Torres Strait Islander led", label: "Aboriginal and Torres Strait Islander led",
@@ -70,5 +73,6 @@ export const Diversity = {
   } ]
 }
 
+// Combine all Categories and export them.
 const Categories = [ Topics, Approach, Diversity ];
 export default Categories;

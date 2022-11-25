@@ -6,19 +6,31 @@ import CategoryFilter from "./CategoryFilter";
 
 import { ClearWrapper, StyledButton } from "../assets/Styles";
 
+/**
+ * Combined Filtering Component to Display all Filter Category Dropdown Components.
+ *
+ * @param applyFilter Global Filter Applying Function.
+ * @param baseCategories All Base Filter Categories to display.
+ * @returns {JSX.Element} Full Rendered Combined List Filters Component.
+ */
 const Filtering = ({ applyFilter, baseCategories }) => {
+  // Local version of the Filter Categories.
   const [ categories ] = useState(baseCategories);
+  // Generate Default Category Filter Dropdown inner Components.
   const animatedComponents = makeAnimated();
 
+  // Helper Function to clear all the current applied filters.
   const clearAllFilters = () => {
     categories.forEach((cat) => handleLocalChange([], null, cat));
   };
 
+  // Helper Method to handle the change of a Filter locally.
   const handleLocalChange = (val, metadata, category) => {
     category.selected = val;
     applyFilter(val, metadata, category.id)
   }
 
+  // Return the Dynamically generate Component Display.
   return (
     <Container>
       <ClearWrapper>
@@ -45,5 +57,5 @@ const Filtering = ({ applyFilter, baseCategories }) => {
   );
 }
 
-
+// Export the Component.
 export default Filtering;
